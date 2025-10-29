@@ -1,96 +1,101 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Target, Users, Rocket, Code2, TrendingUp, Building2 } from "lucide-react";
-import SignupPage from "./signup/page";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const heroVideos = ["/video1.mp4", "/video2.mp4", "/video3.mp4", "/video4.mp4"] as const;
+  const [activeVideo, setActiveVideo] = useState<(typeof heroVideos)[number]>(heroVideos[0]);
+
+  useEffect(() => {
+    const rotation = setInterval(() => {
+      setActiveVideo((current) => {
+        const currentIndex = heroVideos.indexOf(current);
+        const nextIndex = (currentIndex + 1) % heroVideos.length;
+        return heroVideos[nextIndex];
+      });
+    }, 10000);
+    return () => clearInterval(rotation);
+  }, [heroVideos]);
 
   return (
     <div className="min-h-screen bg-white font-orbitron">
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="absolute inset-0 bg-linear-to-br from-blue-50 to-cyan-50 opacity-50"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
-            <div className="lg:col-span-6">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0" aria-hidden="true">
+            <video
+              key={activeVideo}
+              className="h-full w-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/cegaLogo.png"
+            >
+              <source src={activeVideo} type="video/mp4" />
+            </video>
+          </div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#0a1630]/80 via-[#0a1630]/75 to-[#0a1630]/80" />
+          <div className="pointer-events-none absolute inset-0 bg-black/35" />
+        </div>
+
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#87CBDE]/10 border border-[#87CBDE]/20 mb-6">
-                  <span className="text-sm font-medium text-[#173E81]">Now Accepting Applications</span>
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur">
+                  <span className="text-sm font-medium text-white">Now Accepting Applications</span>
                 </div>
-                
-                <h1 className="text-4xl lg:text-6xl font-bold text-[#173E81] leading-tight mb-6">
+
+                <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
                   Accelerate Your
                   <span className="text-[#87CBDE]"> Gaming Startup</span>
                 </h1>
-                
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
-                  Join Southeast Asia's premier gaming and creative technology incubator. 
+
+                <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
+                  Join Southeast Asia&apos;s premier gaming and creative technology incubator. 
                   Get the funding, mentorship, and network you need to scale globally.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                     <Link
                       href="/signup"
-                      className="inline-flex items-center justify-center px-8 py-4 bg-[#173E81] text-white font-semibold rounded-lg hover:bg-[#173E81]/90 transition-colors"
+                      className="inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
                     >
                       Apply for Incubation
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </motion.div>
-                  
-                  <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#173E81] text-[#173E81] font-semibold rounded-lg hover:bg-[#173E81]/5 transition-colors">
+
+                  <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
                     Learn More
                   </button>
                 </div>
               </motion.div>
             </div>
-            
-            <div className="lg:col-span-6 mt-12 lg:mt-0">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative"
-              >
-                <div className="rounded-2xl overflow-hidden shadow-2xl">
-                  <img
-                    src="https://dummyimage.com/960x640/173E81/ffffff.jpg&text=CEGA+Incubation+Hub"
-                    alt="CEGA Incubation Hub"
-                    className="w-full h-[360px] md:h-[420px] lg:h-[480px] object-cover"
-                    loading="eager"
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </div>
 
-          {/* Trusted by logos */}
-          <div className="mt-10 lg:mt-14">
-            <p className="text-xs uppercase tracking-widest text-gray-500 text-center mb-4">Trusted by founders and partners</p>
-            <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap opacity-80">
-              {[
-                "Partner+One","Partner+Two","Partner+Three","Partner+Four","Partner+Five"
-              ].map((name, idx) => (
-                <img
-                  key={idx}
-                  src={`https://dummyimage.com/140x40/ffffff/808080.png&text=${name}`}
-                  alt={name.replace("+"," ")}
-                  className="h-8 w-auto grayscale opacity-70 hover:opacity-100 transition-opacity"
-                />
-              ))}
+            {/* Trusted by logos */}
+            <div className="mt-12 lg:mt-16">
+              <p className="text-xs uppercase tracking-[0.3em] text-blue-100/80 text-center mb-4">Trusted by founders and partners</p>
+              <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap opacity-90">
+                {["Partner+One", "Partner+Two", "Partner+Three", "Partner+Four", "Partner+Five"].map((name, idx) => (
+                  <img
+                    key={idx}
+                    src={`https://dummyimage.com/140x40/ffffff/4a5568.png&text=${name}`}
+                    alt={name.replace("+", " ")}
+                    className="h-8 w-auto grayscale opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -254,9 +259,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-              <section>
-                <SignupPage/>
-              </section>
+
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-[#173E81]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
