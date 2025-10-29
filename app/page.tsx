@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Target, Users, Rocket, Code2, TrendingUp, Building2 } from "lucide-react";
+import SignupPage from "./signup/page";
+import { Grid } from "@mui/material";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -302,7 +304,15 @@ export default function LandingPage() {
           </motion.div>
         </div>
       </section>
-
+      <section>
+        <Grid container spacing={4}>
+          <Grid  size={{ xs: 12 }}>
+                 <SignupPage homepage={true} />
+          </Grid>
+       
+       
+        </Grid>
+      </section>
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
