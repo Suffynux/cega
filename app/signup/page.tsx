@@ -625,7 +625,7 @@ export default function SignupPage() {
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="flex-start">
             {/* Left Section */}
-            <Grid item xs={12} md={5}>
+           <Grid size={{ xs: 12, md: 6 }}>
               <Paper
                 elevation={6}
                 sx={{
@@ -663,7 +663,8 @@ export default function SignupPage() {
             </Grid>
 
             {/* Right Section (Form) */}
-            <Grid item xs={12} md={7}>
+         
+				  <Grid size={{ xs: 12, md: 7 }}>
               <Paper
                 elevation={8}
                 sx={{
@@ -682,7 +683,8 @@ export default function SignupPage() {
                 <Box component="form" onSubmit={handleSubmit}>
                   <Grid container spacing={3}>
                     {/* Text Fields */}
-                    <Grid item xs={12} md={6}>
+                   
+						  <Grid size={{ xs: 12, md: 6 }}>
                       <TextField
                         label="Full Name"
                         fullWidth
@@ -694,7 +696,7 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+						  <Grid size={{ xs: 12, md: 6 }}>
                       <TextField
                         label="Email"
                         fullWidth
@@ -705,7 +707,8 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
+						
                       <TextField
                         label="WhatsApp Number"
                         fullWidth
@@ -717,7 +720,8 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid
+					size={{ xs: 12, md: 6 }}>
                       <TextField
                         label="LinkedIn Profile"
                         fullWidth
@@ -728,7 +732,8 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid 
+					size={{ xs: 12, md: 6 }}>
                       <TextField
                         label="Startup Name"
                         fullWidth
@@ -739,7 +744,7 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <TextField
                         label="Product / Game Title"
                         fullWidth
@@ -751,7 +756,7 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <TextField
                         label="Website / Portfolio"
                         fullWidth
@@ -763,7 +768,7 @@ export default function SignupPage() {
                     </Grid>
 
                     {/* Select Menus */}
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <TextField
                         select
                         label="Origin City"
@@ -781,7 +786,7 @@ export default function SignupPage() {
                       </TextField>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <TextField
                         select
                         label="Current Stage"
@@ -799,7 +804,7 @@ export default function SignupPage() {
                       </TextField>
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid size={{ xs: 12, md: 6 }}>
                       <TextField
                         select
                         label="Vertical Focus"
@@ -818,7 +823,8 @@ export default function SignupPage() {
                     </Grid>
 
                     {/* Text Areas */}
-                    <Grid item xs={12}>
+                    <Grid 
+					size={{ xs: 12, md: 12 }}>
                       <TextField
                         label="Challenges Faced"
                         fullWidth
@@ -831,7 +837,7 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid size={{ xs: 12, md:12 }}>
                       <TextField
                         label="Problem Statement"
                         fullWidth
@@ -844,7 +850,8 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid 
+					size={{ xs: 12, md: 12 }}>
                       <TextField
                         label="Solution Summary"
                         fullWidth
@@ -857,7 +864,8 @@ export default function SignupPage() {
                       />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid 
+					size={{ xs: 12, md: 12 }}>
                       <TextField
                         label="Motivation to Apply"
                         fullWidth
@@ -871,7 +879,8 @@ export default function SignupPage() {
                     </Grid>
 
                     {/* Submit */}
-                    <Grid item xs={12}>
+                    <Grid 
+					size={{ xs: 12, md: 12 }}>
                       <Button
                         variant="contained"
                         color="primary"
