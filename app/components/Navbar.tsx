@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import type { Variants } from "framer-motion";
+import { toast } from "react-toastify";
 
 const navLinks = [
   { label: "Incubation", href: "/incubation" },
@@ -22,6 +23,9 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  const handleToastMessage = ()=>{
+    toast.error("Website is under maintenace")
+  }
   // Desktop menu animation
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -102,7 +106,8 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <motion.div key={link.href} variants={itemVariants}>
                   <Link
-                    href={link.href}
+                  onClick={handleToastMessage}
+                    href={""}
                     className="px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300 relative group"
                     style={{ color: "#173E81", fontFamily: "Orbitron, sans-serif" }}
                   >
@@ -123,7 +128,7 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                href="/apply"
+                href="/signup"
                 className="px-6 py-2.5 text-sm font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 tracking-wide"
                 style={{ backgroundColor: "#87CBDE", color: "#173E81", fontFamily: "Orbitron, sans-serif" }}
               >
@@ -166,8 +171,14 @@ export default function Navbar() {
                   transition={{ delay: index * 0.05 }}
                 >
                   <Link
-                    href={link.href}
-                    onClick={closeMenu}
+
+                    
+                    href={""}
+                  onClick={() => {
+  closeMenu();
+  handleToastMessage();
+}}
+
                     className="block px-4 py-3 text-base font-semibold rounded-lg transition-all duration-300"
                     style={{ color: "#173E81", fontFamily: "Orbitron, sans-serif" }}
                   >
@@ -182,7 +193,7 @@ export default function Navbar() {
                 variants={mobileItemVariants}
               >
                 <Link
-                  href="/apply"
+                  href="/signup"
                   onClick={closeMenu}
                   className="block w-full text-center px-6 py-3 text-base font-bold rounded-full shadow-lg transition-all duration-300 tracking-wide"
                   style={{ backgroundColor: "#87CBDE", color: "#173E81", fontFamily: "Orbitron, sans-serif" }}
