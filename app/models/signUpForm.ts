@@ -36,13 +36,7 @@ const startupApplicationSchema = new Schema(
     linkedInProfile: {
       type: String,
       trim: true,
-      validate: {
-        validator: function (value) {
-          if (!value) return true; // optional field
-          return validator.isURL(value);
-        },
-        message: "Please enter a valid LinkedIn URL",
-      },
+   
     },
 
     startupName: {
