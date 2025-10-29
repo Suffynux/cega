@@ -1,10 +1,18 @@
-export function handleError(error:any) {
+export function handleError(error: any) {
   console.error("❌ Error occurred:", error);
 
   // Handle known error types
   if (error.name === "ValidationError") {
+    // Extract readable messages from each field
+    const fieldMessages = Object.values(error.errors || {}).map(
+      (e: any) => e.message
+    );
+
     return {
-      message: "Validation failed.",
+      message:
+        fieldMessages.length > 0
+          ? fieldMessages.join(" | ")
+          : "Validation failed.",
       status: 400,
       details: error.errors || null,
     };
