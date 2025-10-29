@@ -638,7 +638,7 @@ export default function SignupPage({homepage}:any) {
                     </Grid>
 
                     {/* Text Areas */}
-                    <Grid size={{ xs: 12 }}>
+                    <Grid size={{ xs: 12, sm:6 }}>
                       <TextField
                         label="Challenges Faced"
                         fullWidth
@@ -651,7 +651,7 @@ export default function SignupPage({homepage}:any) {
                       />
                     </Grid>
 
-                    <Grid size={{ xs: 12 }}>
+                    <Grid size={{ xs: 12,sm:6 }}>
                       <TextField
                         label="Problem Statement"
                         fullWidth
