@@ -1,7 +1,5 @@
-
-
 import { connectToDatabase } from "@/app/lib/dbConnect";
-import signUp from "@/app/models/signUpForm";
+import Campaign from "@/app/models/campaignForm";
 import { handleError } from "@/app/utils/errorHandler";
 import { NextResponse } from "next/server";
 
@@ -9,18 +7,16 @@ export async function POST(req: Request) {
   try {
     await connectToDatabase();
     const data = await req.json();
-    // check if applications
-    const newForm = await signUp.create(data);
+    const compaignForm = await Campaign.create(data);
 
     return NextResponse.json({
       success: true,
       message: "Application submitted successfully!",
-      form: newForm,
+      form: compaignForm,
     });
   } catch (error: any) {
     const handled = handleError(error);
 
-    // ✅ Always return a JSON response (no crashes)
     return NextResponse.json(
       {
         success: false,
@@ -35,8 +31,11 @@ export async function POST(req: Request) {
 export async function GET() {
   try {
     await connectToDatabase();
-    const forms = await signUp.find();
-    return NextResponse.json({ success: true, forms });
+    const forms = await Campaign.find();
+    return NextResponse.json({
+      success: true,
+      forms,
+    });
   } catch (error: any) {
     const handled = handleError(error);
     return NextResponse.json(

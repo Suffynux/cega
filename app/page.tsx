@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, Users, Rocket, Code2, TrendingUp, Building2 } from "lucide-react";
+import { ArrowRight, Target, Users, Rocket, Code2, TrendingUp, Building2, Instagram, Linkedin, RedoDotIcon, Youtube, Twitter } from "lucide-react";
 import SignupPage from "./signup/page";
 import { Grid } from "@mui/material";
 
@@ -26,82 +26,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white font-orbitron">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 lg:pt-32 lg:pb-24">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0" aria-hidden="true">
-            <video
-              key={activeVideo}
-              className="h-full w-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              poster="/cegaLogo.png"
-            >
-              <source src={activeVideo} type="video/mp4" />
-            </video>
-          </div>
-          <div className="absolute inset-0 bg-linear-to-br from-[#0a1630]/80 via-[#0a1630]/75 to-[#0a1630]/80" />
-          <div className="pointer-events-none absolute inset-0 bg-black/35" />
-        </div>
-
-        <div className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur">
-                  <span className="text-sm font-medium text-white">Now Accepting Applications</span>
-                </div>
-
-                <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
-                  Accelerate Your
-                  <span className="text-[#87CBDE]"> Gaming Startup</span>
-                </h1>
-
-                <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
-                  Join Southeast Asia&apos;s premier gaming and creative technology incubator. 
-                  Get the funding, mentorship, and network you need to scale globally.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link
-                      href="/signup"
-                      className="inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
-                    >
-                      Apply for Incubation
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </motion.div>
-
-                  <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
-                    Learn More
-                  </button>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Trusted by logos */}
-            <div className="mt-12 lg:mt-16">
-              <p className="text-xs uppercase tracking-[0.3em] text-blue-100/80 text-center mb-4">Trusted by founders and partners</p>
-              <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap opacity-90">
-                {["Partner+One", "Partner+Two", "Partner+Three", "Partner+Four", "Partner+Five"].map((name, idx) => (
-                  <img
-                    key={idx}
-                    src={`https://dummyimage.com/140x40/ffffff/4a5568.png&text=${name}`}
-                    alt={name.replace("+", " ")}
-                    className="h-8 w-auto grayscale opacity-70 hover:opacity-100 transition-opacity"
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <Hero activeVideo={activeVideo} />
 
       {/* 4 Pillars Section */}
       <section className="py-16 lg:py-24 bg-gray-50">
@@ -313,42 +238,102 @@ export default function LandingPage() {
        
         </Grid>
       </section>
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold text-[#87CBDE] mb-4">CEGA</h3>
-              <p className="text-gray-300 mb-6 max-w-md">
-                Southeast Asia's premier gaming and creative technology incubator, 
-                building the next generation of successful gaming ventures.
-              </p>
-              <div className="text-sm text-gray-400">
-                © 2025 CEGA. All rights reserved.
+  
+    </div>
+  );
+}
+
+
+
+export function Hero({ activeVideo, incubation }: any) {
+  return (
+    <>
+      <section
+        className={`relative ${
+          incubation
+            ? "pt-24 pb-32 md:pt-55 lg:pb-44" // ⬅️ More height if incubation
+            : "pt-24 pb-16 lg:pt-32 lg:pb-24"
+        }`}
+      >
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0" aria-hidden="true">
+            <video
+              key={activeVideo}
+              className="h-full w-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/cegaLogo.png"
+            >
+              <source src={activeVideo} type="video/mp4" />
+            </video>
+          </div>
+          <div className="absolute inset-0 bg-linear-to-br from-[#0a1630]/80 via-[#0a1630]/75 to-[#0a1630]/80" />
+          <div className="pointer-events-none absolute inset-0 bg-black/35" />
+        </div>
+
+        <div className="relative z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur">
+                  <span className="text-sm font-medium text-white">Now Accepting Applications</span>
+                </div>
+
+                <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
+                  Accelerate Your
+                  <span className="text-[#87CBDE]"> Gaming Startup</span>
+                </h1>
+
+                <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
+                  Join Southeast Asia&apos;s premier gaming and creative technology incubator. 
+                  Get the funding, mentorship, and network you need to scale globally.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                    <Link
+                      href="/signup"
+                      className="inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
+                    >
+                      Apply for Incubation
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </motion.div>
+
+                  <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                    Learn More
+                  </button>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Trusted by logos — only show if NOT incubation */}
+            {!incubation && (
+              <div className="mt-12 lg:mt-16">
+                <p className="text-xs uppercase tracking-[0.3em] text-blue-100/80 text-center mb-4">
+                  Trusted by founders and partners
+                </p>
+                <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap opacity-90">
+                  {["Partner+One", "Partner+Two", "Partner+Three", "Partner+Four", "Partner+Five"].map((name, idx) => (
+                    <img
+                      key={idx}
+                      src={`https://dummyimage.com/140x40/ffffff/4a5568.png&text=${name}`}
+                      alt={name.replace("+", " ")}
+                      className="h-8 w-auto grayscale opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Programs</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li><Link href="/incubation" className="hover:text-[#87CBDE] transition-colors">Incubation</Link></li>
-                <li><Link href="/training" className="hover:text-[#87CBDE] transition-colors">Training</Link></li>
-                <li><Link href="/co-working" className="hover:text-[#87CBDE] transition-colors">Co-working</Link></li>
-                <li><Link href="/community-centre" className="hover:text-[#87CBDE] transition-colors">Community</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li><Link href="/about" className="hover:text-[#87CBDE] transition-colors">About Us</Link></li>
-                <li><Link href="/knowledge-hub" className="hover:text-[#87CBDE] transition-colors">Knowledge Hub</Link></li>
-                <li><Link href="/contact" className="hover:text-[#87CBDE] transition-colors">Contact</Link></li>
-              </ul>
-            </div>
+            )}
           </div>
         </div>
-      </footer>
-    </div>
+      </section>
+    </>
   );
 }

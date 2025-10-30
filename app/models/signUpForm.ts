@@ -23,15 +23,8 @@ const startupApplicationSchema = new Schema(
       type: String,
       required: [true, "Whatsapp Number is required"],
       trim: true,
-      validate: {
-        validator: function (value) {
-          // Allow formats like +92..., +1..., etc.
-          return /^\+\d{1,3}\d{7,14}$/.test(value);
-        },
-        message:
-          "Please enter a valid WhatsApp number with country code (e.g., +923001234567)",
       },
-    },
+  
 
     linkedInProfile: {
       type: String,

@@ -37,7 +37,7 @@ type StartupForm = {
   websiteOrPortfolio: string;
   startupOriginCity: string;
   teamMembersCount: string;
-  currentStage: string;
+  currentStage: string; 
   vertical: string;
   challengesFaced: string;
   problemStatement: string;

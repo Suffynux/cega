@@ -106,8 +106,7 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <motion.div key={link.href} variants={itemVariants}>
                   <Link
-                  onClick={handleToastMessage}
-                    href={""}
+                    href={link.href}
                     className="px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300 relative group"
                     style={{ color: "#173E81", fontFamily: "Orbitron, sans-serif" }}
                   >
@@ -173,10 +172,10 @@ export default function Navbar() {
                   <Link
 
                     
-                    href={""}
+                    href={link.href}
                   onClick={() => {
   closeMenu();
-  handleToastMessage();
+
 }}
 
                     className="block px-4 py-3 text-base font-semibold rounded-lg transition-all duration-300"
