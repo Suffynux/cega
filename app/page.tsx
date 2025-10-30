@@ -3,14 +3,34 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, Users, Rocket, Code2, TrendingUp, Building2, Instagram, Linkedin, RedoDotIcon, Youtube, Twitter } from "lucide-react";
+import {
+  ArrowRight,
+  Target,
+  Users,
+  Rocket,
+  Code2,
+  TrendingUp,
+  Building2,
+  Instagram,
+  Linkedin,
+  RedoDotIcon,
+  Youtube,
+  Twitter,
+} from "lucide-react";
 import SignupPage from "./signup/page";
 import { Grid } from "@mui/material";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const heroVideos = ["/video1.mp4", "/video2.mp4", "/video3.mp4", "/video4.mp4"] as const;
-  const [activeVideo, setActiveVideo] = useState<(typeof heroVideos)[number]>(heroVideos[0]);
+  const heroVideos = [
+    "/video1.mp4",
+    "/video2.mp4",
+    "/video3.mp4",
+    "/video4.mp4",
+  ] as const;
+  const [activeVideo, setActiveVideo] = useState<(typeof heroVideos)[number]>(
+    heroVideos[0]
+  );
 
   useEffect(() => {
     const rotation = setInterval(() => {
@@ -26,14 +46,19 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white font-orbitron">
       {/* Hero Section */}
-     <Hero activeVideo={activeVideo} />
+      <Hero activeVideo={activeVideo} />
 
       {/* 4 Pillars Section */}
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-[#173E81] mb-4">From Learning to Launch: 4 Pillars of Growth</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">Four connected programs designed to take you from your first prototype to a funded, scalable venture.</p>
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#173E81] mb-4">
+              From Learning to Launch: 4 Pillars of Growth
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Four connected programs designed to take you from your first
+              prototype to a funded, scalable venture.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -42,26 +67,26 @@ export default function LandingPage() {
                 title: "Incubation",
                 description: "Enroll in your cohort now",
                 href: "/incubation",
-                img: "https://dummyimage.com/640x420/0f172a/ffffff.jpg&text=Incubation"
+                img: "https://dummyimage.com/640x420/0f172a/ffffff.jpg&text=Incubation",
               },
               {
                 title: "Training",
                 description: "Register for FREE trainings",
                 href: "/training",
-                img: "https://dummyimage.com/640x420/1e293b/ffffff.jpg&text=Training"
+                img: "https://dummyimage.com/640x420/1e293b/ffffff.jpg&text=Training",
               },
               {
                 title: "Co-Working",
                 description: "Join our FREE co-working",
                 href: "/co-working",
-                img: "https://dummyimage.com/640x420/0b1220/ffffff.jpg&text=Co-Working"
+                img: "https://dummyimage.com/640x420/0b1220/ffffff.jpg&text=Co-Working",
               },
               {
                 title: "Community Centre",
                 description: "Become part of CEGA community",
                 href: "/community-centre",
-                img: "https://dummyimage.com/640x420/111827/ffffff.jpg&text=Community"
-              }
+                img: "https://dummyimage.com/640x420/111827/ffffff.jpg&text=Community",
+              },
             ].map((card, idx) => (
               <motion.div
                 key={idx}
@@ -73,11 +98,19 @@ export default function LandingPage() {
               >
                 <a href={card.href} className="block">
                   <div className="aspect-4/3 w-full overflow-hidden">
-                    <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
+                    <img
+                      src={card.img}
+                      alt={card.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="p-5">
-                    <h3 className="text-xl font-semibold text-[#173E81]">{card.title}</h3>
-                    <p className="text-sm text-gray-600 mt-1">{card.description}</p>
+                    <h3 className="text-xl font-semibold text-[#173E81]">
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 mt-1">
+                      {card.description}
+                    </p>
                   </div>
                 </a>
               </motion.div>
@@ -100,28 +133,32 @@ export default function LandingPage() {
                 Why Choose CEGA?
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                We've helped hundreds of gaming startups transform from ideas into 
-                profitable businesses with global reach.
+                We've helped hundreds of gaming startups transform from ideas
+                into profitable businesses with global reach.
               </p>
 
               <div className="space-y-6">
                 {[
                   {
                     title: "Gaming Industry Focus",
-                    description: "Deep expertise in gaming, esports, and interactive entertainment with specialized mentors who understand your market."
+                    description:
+                      "Deep expertise in gaming, esports, and interactive entertainment with specialized mentors who understand your market.",
                   },
                   {
                     title: "Proven Track Record",
-                    description: "95% of our alumni companies are still operating after 3 years, with an average of 300% revenue growth."
+                    description:
+                      "95% of our alumni companies are still operating after 3 years, with an average of 300% revenue growth.",
                   },
                   {
                     title: "Southeast Asian Gateway",
-                    description: "Strategic location and partnerships to help you expand across the fastest-growing gaming markets in the world."
+                    description:
+                      "Strategic location and partnerships to help you expand across the fastest-growing gaming markets in the world.",
                   },
                   {
                     title: "End-to-End Support",
-                    description: "From initial concept to Series A funding, we provide continuous support throughout your entire growth journey."
-                  }
+                    description:
+                      "From initial concept to Series A funding, we provide continuous support throughout your entire growth journey.",
+                  },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -135,8 +172,12 @@ export default function LandingPage() {
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
                     <div>
-                      <h3 className="font-semibold text-[#173E81] mb-2">{item.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                      <h3 className="font-semibold text-[#173E81] mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -155,7 +196,9 @@ export default function LandingPage() {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
                     <div className="text-3xl font-bold mb-2">500+</div>
-                    <div className="text-sm opacity-90">Companies Incubated</div>
+                    <div className="text-sm opacity-90">
+                      Companies Incubated
+                    </div>
                   </div>
                   <div className="text-center">
                     <div className="text-3xl font-bold mb-2">$50M+</div>
@@ -170,11 +213,12 @@ export default function LandingPage() {
                     <div className="text-sm opacity-90">Jobs Created</div>
                   </div>
                 </div>
-                
+
                 <div className="mt-8 p-4 bg-white/10 rounded-xl backdrop-blur">
                   <p className="text-sm italic">
-                    "CEGA provided the perfect combination of funding, mentorship, and network 
-                    that helped us scale from 5 to 50 employees in just 18 months."
+                    "CEGA provided the perfect combination of funding,
+                    mentorship, and network that helped us scale from 5 to 50
+                    employees in just 18 months."
                   </p>
                   <div className="mt-3 text-sm">
                     <div className="font-semibold">Sarah Chen</div>
@@ -200,10 +244,10 @@ export default function LandingPage() {
               Ready to Scale Your Gaming Venture?
             </h2>
             <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-              Join our next cohort of innovative gaming entrepreneurs. 
+              Join our next cohort of innovative gaming entrepreneurs.
               Applications for our Q1 2026 batch are now open.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
                 whileHover={{ scale: 1.02 }}
@@ -217,40 +261,36 @@ export default function LandingPage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </motion.div>
-              
+
               <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
                 Schedule a Call
               </button>
             </div>
-            
+
             <p className="mt-6 text-sm text-blue-200">
-              Application deadline: March 15, 2026 • Program starts: April 1, 2026
+              Application deadline: March 15, 2026 • Program starts: April 1,
+              2026
             </p>
           </motion.div>
         </div>
       </section>
       <section>
         <Grid container spacing={4}>
-          <Grid  size={{ xs: 12 }}>
-                 <SignupPage homepage={true} />
+          <Grid size={{ xs: 12 }}>
+            <SignupPage homepage={true} />
           </Grid>
-       
-       
         </Grid>
       </section>
-  
     </div>
   );
 }
 
-
-
-export function Hero({ activeVideo, incubation }: any) {
+export function Hero({ activeVideo, incubation, training }: any) {
   return (
     <>
       <section
         className={`relative ${
-          incubation
+          incubation || training
             ? "pt-24 pb-32 md:pt-55 lg:pb-44" // ⬅️ More height if incubation
             : "pt-24 pb-16 lg:pt-32 lg:pb-24"
         }`}
@@ -282,21 +322,43 @@ export function Hero({ activeVideo, incubation }: any) {
                 transition={{ duration: 0.6 }}
               >
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur">
-                  <span className="text-sm font-medium text-white">Now Accepting Applications</span>
+                  <span className="text-sm font-medium text-white">
+                    Now Accepting Applications
+                  </span>
                 </div>
 
-                <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
-                  Accelerate Your
-                  <span className="text-[#87CBDE]"> Gaming Startup</span>
-                </h1>
+         <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
+  {training ? (
+    <>Empowering the Next Generation of</>
+  ) : (
+    <>Accelerate Your</>
+  )}{" "}
+  <span className="text-[#87CBDE]">
+    {training ? "Game Developers" : "Startup"}
+  </span>
+</h1>
 
-                <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
-                  Join Southeast Asia&apos;s premier gaming and creative technology incubator. 
-                  Get the funding, mentorship, and network you need to scale globally.
-                </p>
+<p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
+  {training ? (
+    <>
+      Join our free, hands-on training program for aspiring developers.
+      Learn from industry mentors, master essential tools, and kickstart
+      your journey in game development.
+    </>
+  ) : (
+    <>
+      Join our comprehensive incubation program to scale your startup
+      with mentorship, funding, and a global network.
+    </>
+  )}
+</p>
+
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
                     <Link
                       href="/signup"
                       className="inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
@@ -314,13 +376,19 @@ export function Hero({ activeVideo, incubation }: any) {
             </div>
 
             {/* Trusted by logos — only show if NOT incubation */}
-            {!incubation && (
+            {!incubation && !training && (
               <div className="mt-12 lg:mt-16">
                 <p className="text-xs uppercase tracking-[0.3em] text-blue-100/80 text-center mb-4">
                   Trusted by founders and partners
                 </p>
                 <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap opacity-90">
-                  {["Partner+One", "Partner+Two", "Partner+Three", "Partner+Four", "Partner+Five"].map((name, idx) => (
+                  {[
+                    "Partner+One",
+                    "Partner+Two",
+                    "Partner+Three",
+                    "Partner+Four",
+                    "Partner+Five",
+                  ].map((name, idx) => (
                     <img
                       key={idx}
                       src={`https://dummyimage.com/140x40/ffffff/4a5568.png&text=${name}`}
