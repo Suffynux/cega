@@ -285,13 +285,13 @@ export default function LandingPage() {
   );
 }
 
-export function Hero({ activeVideo, incubation, training }: any) {
+export function Hero({ activeVideo, incubation, training, coWorking }: any) {
   return (
     <>
       <section
         className={`relative ${
-          incubation || training
-            ? "pt-24 pb-32 md:pt-55 lg:pb-44" // ⬅️ More height if incubation
+          incubation || training || coWorking
+            ? "pt-24 pb-32 md:pt-55 lg:pb-44"
             : "pt-24 pb-16 lg:pt-32 lg:pb-24"
         }`}
       >
@@ -327,56 +327,77 @@ export function Hero({ activeVideo, incubation, training }: any) {
                   </span>
                 </div>
 
-         <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
-  {training ? (
-    <>Empowering the Next Generation of</>
-  ) : (
-    <>Accelerate Your</>
-  )}{" "}
-  <span className="text-[#87CBDE]">
-    {training ? "Game Developers" : "Startup"}
-  </span>
-</h1>
+                {coWorking ? (
+                  <>
+                    <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
+                      A Workspace Built for
+                      <span className="text-[#87CBDE]"> Game &amp; Animation Teams</span>
+                    </h1>
 
-<p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
-  {training ? (
-    <>
-      Join our free, hands-on training program for aspiring developers.
-      Learn from industry mentors, master essential tools, and kickstart
-      your journey in game development.
-    </>
-  ) : (
-    <>
-      Join our comprehensive incubation program to scale your startup
-      with mentorship, funding, and a global network.
-    </>
-  )}
-</p>
+                    <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
+                      Free desks, meeting rooms, labs, and blazing internet—purpose-built for production.
+                      <br />
+                      <strong>Open 9:00 AM – 6:00 PM.</strong>
+                    </p>
 
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <motion.a
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        href="/co-working"
+                        className="inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
+                      >
+                        Book a Desk
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </motion.a>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Link
-                      href="/signup"
-                      className="inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
-                    >
-                      Apply for Incubation
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Link>
-                  </motion.div>
+                      <a className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors" href="/co-working#facilities">
+                        See Facilities
+                      </a>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <h1 className="text-4xl lg:text-6xl font-bold text-white leading-tight mb-6 drop-shadow-[0_15px_40px_rgba(10,22,48,0.65)]">
+                      {training ? "Empowering the Next Generation of" : "Accelerate Your"}{" "}
+                      <span className="text-[#87CBDE]">{training ? "Game Developers" : "Startup"}</span>
+                    </h1>
 
-                  <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
-                    Learn More
-                  </button>
-                </div>
+                    <p className="text-lg text-blue-100 mb-8 leading-relaxed max-w-2xl drop-shadow-[0_10px_30px_rgba(10,22,48,0.65)]">
+                      {training ? (
+                        <>
+                          Join our free, hands-on training program for aspiring developers.
+                          Learn from industry mentors, master essential tools, and kickstart your journey in game development.
+                        </>
+                      ) : (
+                        <>
+                          Join our comprehensive incubation program to scale your startup with mentorship, funding, and a global network.
+                        </>
+                      )}
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                        <Link
+                          href="/signup"
+                          className="inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
+                        >
+                          Apply for Incubation
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </motion.div>
+
+                      <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                        Learn More
+                      </button>
+                    </div>
+                  </>
+                )}
               </motion.div>
             </div>
 
             {/* Trusted by logos — only show if NOT incubation */}
-            {!incubation && !training && (
+            {!incubation && !training && !coWorking && (
               <div className="mt-12 lg:mt-16">
                 <p className="text-xs uppercase tracking-[0.3em] text-blue-100/80 text-center mb-4">
                   Trusted by founders and partners

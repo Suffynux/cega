@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     await connectToDatabase();
-    const data = req.json();
+    const data = await req.json();
     const coWorkingForm = await coWorking.create(data);
 
     return NextResponse.json({
