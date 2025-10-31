@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import SignupPage from "./signup/page";
 import { Grid } from "@mui/material";
+import { AuroraText } from "@/components/ui/aurora-text";
 
 export default function LandingPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -55,9 +56,12 @@ export default function LandingPage() {
             <h2 className="text-3xl lg:text-4xl font-bold text-[#173E81] mb-4">
               From Learning to Launch: 4 Pillars of Growth
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Four connected programs designed to take you from your first
+            <p className="text-lg text-gray-500 max-w-3xl mx-auto font-outfit md:text-2xl">
+              <AuroraText>
+ Four connected programs designed to take you from your first
               prototype to a funded, scalable venture.
+              </AuroraText>
+             
             </p>
           </div>
 
@@ -281,6 +285,7 @@ export default function LandingPage() {
           </Grid>
         </Grid>
       </section>
+  
     </div>
   );
 }
