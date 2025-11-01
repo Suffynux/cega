@@ -6,7 +6,7 @@ const mentorsData = [
     id: 1,
     name: "Ali Ihsan",
     title: "Game development",
-    expertise: "Game Development & Design",
+    expertise: "Game Development & Design .",
     company: "Game studio leadership",
     image: "/ourTeam/1.jpeg",
   },
