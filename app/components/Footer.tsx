@@ -3,16 +3,28 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Target, Users, Rocket, Code2, TrendingUp, Building2, Instagram, Linkedin, RedoDotIcon, Youtube, Twitter } from "lucide-react";
+import {
+  ArrowRight,
+  Target,
+  Users,
+  Rocket,
+  Code2,
+  TrendingUp,
+  Building2,
+  Instagram,
+  Linkedin,
+  RedoDotIcon,
+  Youtube,
+  Twitter,
+} from "lucide-react";
 import { Grid } from "@mui/material";
 
 export default function Footer() {
   return (
-        
-    <footer className="bg-[#0A1630] text-white py-16 relative overflow-hidden">
+    <footer className="bg-[#0A1630] text-white py-16 relative overflow-hidden font-outfit">
       {/* Decorative gradient blur */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#173E81]/40 to-transparent opacity-40" />
-    
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           {/* Brand */}
@@ -26,14 +38,15 @@ export default function Footer() {
               CEGA
             </motion.h3>
             <p className="text-gray-300 leading-relaxed">
-              Southeast Asia's premier gaming and creative technology incubator —
-              empowering startups to grow through innovation, mentorship, and global reach.
+              Southeast Asia's premier gaming and creative technology incubator
+              — empowering startups to grow through innovation, mentorship, and
+              global reach.
             </p>
             <div className="text-sm text-gray-500 pt-4">
               © {new Date().getFullYear()} CEGA. All rights reserved.
             </div>
           </div>
-    
+
           {/* Programs */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -42,19 +55,21 @@ export default function Footer() {
           >
             <h4 className="font-semibold mb-4 text-[#87CBDE]">Programs</h4>
             <ul className="space-y-2 text-gray-300">
-              {["Incubation", "Training", "Co-working", "Community"].map((item, i) => (
-                <li key={i}>
-                  <Link
-                    href={`/${item.toLowerCase().replace(" ", "-")}`}
-                    className="hover:text-[#87CBDE] transition-colors duration-200"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              {["Incubation", "Training", "Co-working", "Community"].map(
+                (item, i) => (
+                  <li key={i}>
+                    <Link
+                      href={`/${item.toLowerCase().replace(" ", "-")}`}
+                      className="hover:text-[#87CBDE] transition-colors duration-200"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </motion.div>
-    
+
           {/* Company */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -80,7 +95,7 @@ export default function Footer() {
             </ul>
           </motion.div>
         </div>
-    
+
         {/* Social Links */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -136,4 +151,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-    }
+}

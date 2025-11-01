@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -27,7 +28,24 @@ import {
   Button,
   Typography,
   Box,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Divider,
 } from "@mui/material";
+import SchoolIcon from "@mui/icons-material/School";
+import WorkOutlineIcon from "@mui/icons-material/WorkOutline";
+import HubIcon from "@mui/icons-material/Hub";
+import RocketLaunchIcon from "@mui/icons-material/RocketLaunch";
+import PaletteIcon from "@mui/icons-material/Palette";
+import ScienceIcon from "@mui/icons-material/Science";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import MemoryIcon from "@mui/icons-material/Memory";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import GroupsIcon from "@mui/icons-material/Groups";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AuroraText } from "@/components/ui/aurora-text";
 import { Marquee } from "@/components/ui/marquee";
 import { MarqueeDemoVertical } from "@/components/ui/Review";
@@ -62,6 +80,124 @@ export default function LandingPage() {
       body: "I'm at a loss for words. This is amazing. I love it.",
       img: "https://avatar.vercel.sh/john",
     },
+  ];
+
+  const audienceSegments = [
+    {
+      title: "Students & Trainees",
+      description: "Upskilling with structured mentorship and real projects.",
+      Icon: SchoolIcon,
+    },
+    {
+      title: "Freelancers",
+      description: "Grow your portfolio and tap into collaborative gigs.",
+      Icon: WorkOutlineIcon,
+    },
+    {
+      title: "Indie Developers & Small Studios",
+      description: "Access production support to ship your next title.",
+      Icon: HubIcon,
+    },
+    {
+      title: "Startup Founders",
+      description: "Validate ideas, secure funding, and scale with speed.",
+      Icon: RocketLaunchIcon,
+    },
+    {
+      title: "Creative Professionals",
+      description:
+        "Blend art and tech with a community that shares your vision.",
+      Icon: PaletteIcon,
+    },
+    {
+      title: "Educators & Researchers",
+      description: "Co-create curriculum, research labs, and innovation hubs.",
+      Icon: ScienceIcon,
+    },
+    {
+      title: "Women in Tech & Gaming",
+      description: "Join inclusive cohorts and supportive leadership circles.",
+      Icon: Diversity3Icon,
+    },
+    {
+      title: "Brands & Sponsors",
+      description: "Activate partnerships with emerging gaming ventures.",
+      Icon: HandshakeIcon,
+    },
+    {
+      title: "Investors & VCs",
+      description: "Source vetted teams ready for the next funding milestone.",
+      Icon: AccountBalanceIcon,
+    },
+    {
+      title: "Tech Enthusiasts",
+      description:
+        "Experiment with cutting-edge tools, engines, and workflows.",
+      Icon: MemoryIcon,
+    },
+    {
+      title: "Esports Players",
+      description:
+        "Train with top talent and build winning competitive rosters.",
+      Icon: SportsEsportsIcon,
+    },
+    {
+      title: "General Community",
+      description: "Connect, collaborate, and celebrate the future of play.",
+      Icon: GroupsIcon,
+    },
+  ];
+
+  const MotionBox = motion(Box);
+
+  const partnerLogos = [
+    { src: "/workingWith/1.png", alt: "Odoo" },
+    { src: "/workingWith/2.png", alt: "Huawei" },
+    { src: "/workingWith/3.png", alt: "Tencent" },
+    { src: "/workingWith/4.png", alt: "NetEase" },
+    { src: "/workingWith/5.jpg", alt: "Game BCN" },
+    { src: "/workingWith/6.webp", alt: "Homa" },
+    { src: "/workingWith/7.avif", alt: "Partners" },
+    { src: "/workingWith/8.png", alt: "Partner Eight" },
+    { src: "/workingWith/9.png", alt: "Partner Nine" },
+  ];
+
+  const faqItems = [
+    {
+      question: "What is CEGA’s mission?",
+      answer:
+        "We exist to accelerate Pakistan’s gaming industry by elevating production quality, building globally recognised IPs, and forging international partnerships that unlock capital and mentorship.",
+    },
+    {
+      question: "How does CEGA support early-stage founders?",
+      answer:
+        "From prototype to launch, founders receive structured mentorship, studio space, investor readiness sprints, and access to our global partner network.",
+    },
+    {
+      question: "Can non-technical creatives join CEGA?",
+      answer:
+        "Absolutely. Artists, writers, producers, and sound designers collaborate with developers inside multidisciplinary squads that mirror modern game studios.",
+    },
+    {
+      question: "What makes CEGA different from other incubators?",
+      answer:
+        "We are gaming-first. Every program, mentor, and tooling stack is curated for interactive entertainment — from live-ops coaching to playable testing labs.",
+    },
+    {
+      question: "How do international partners work with CEGA?",
+      answer:
+        "Global studios and investors co-design bootcamps, sponsor cohorts, and source talent through CEGA, creating a bridge between Pakistan and worldwide markets.",
+    },
+    {
+      question: "Where is CEGA headed next?",
+      answer:
+        "Our vision is to deliver record revenues for Pakistani studios, cultivate export-ready IPs, and cement the country as a regional hub for gaming innovation.",
+    },
+  ];
+
+  const faqColumns = [
+    faqItems.filter((_, index) => index % 2 === 0),
+    faqItems.filter((_, index) => index % 2 === 1),
   ];
 
   useEffect(() => {
@@ -217,6 +353,93 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Audience Section */}
+      <section className="relative overflow-hidden py-16 lg:py-24 bg-[#f5f8ff]">
+        <motion.div
+          className="pointer-events-none absolute -top-24 left-1/4 h-56 w-56 rounded-full bg-[#87CBDE]/40 blur-3xl"
+          initial={{ opacity: 0.45, y: 0 }}
+          animate={{ opacity: [0.45, 0.7, 0.45], y: [0, -24, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="pointer-events-none absolute -bottom-24 right-1/5 h-72 w-72 rounded-full bg-[#173E81]/20 blur-[120px]"
+          initial={{ opacity: 0.3, y: 0, scale: 1 }}
+          animate={{
+            opacity: [0.3, 0.55, 0.3],
+            y: [0, 26, 0],
+            scale: [1, 1.08, 1],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#173E81] mb-4">
+              Who Is It For?
+            </h2>
+            <p className="text-base text-[#47679d] max-w-3xl mx-auto font-outfit">
+              Our programs unite creators, technologists, and partners from
+              across the gaming ecosystem. Discover the communities that thrive
+              inside CEGA.
+            </p>
+          </div>
+
+          <Grid container spacing={3} justifyContent="center">
+            {audienceSegments.map(({ title, description, Icon }, index) => (
+              <Grid key={title} size={{ xs: 12, md: 4 }}>
+                <MotionBox
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.05,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  whileHover={{ y: -10, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    textAlign: "center",
+                    gap: 2,
+                    p: 3,
+                    minHeight: "190px",
+                    borderRadius: "18px",
+                    border: "1px solid rgba(23,62,129,0.12)",
+                    background:
+                      "linear-gradient(180deg, rgba(255,255,255,0.9), rgba(235,243,255,0.88))",
+                    boxShadow: "0 12px 30px rgba(8,27,88,0.08)",
+                    transition: "box-shadow 0.35s ease, background 0.35s ease",
+                    "&:hover": {
+                      boxShadow: "0 22px 45px rgba(8,27,88,0.18)",
+                      background:
+                        "linear-gradient(180deg, rgba(135,203,222,0.25), rgba(23,62,129,0.12))",
+                    },
+                  }}
+                >
+                  <Icon sx={{ fontSize: 40, color: "#27B2D7" }} />
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ fontWeight: 700, color: "#173E81" }}
+                    className="font-orbitron"
+                  >
+                    {title}
+                  </Typography>
+                  <Typography
+                    className="font-outfit"
+                    variant="body2"
+                    sx={{ color: "#4f6da5", lineHeight: 1.6 }}
+                  >
+                    {description}
+                  </Typography>
+                </MotionBox>
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      </section>
+
       {/* Success Stories Section */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -330,7 +553,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 lg:py-24 bg-[#173E81] mb-3">
+      <section className="py-16 lg:py-24 bg-[#173E81]">
         <div className="max-w-7xl mx-auto flex flex-col-reverse items-center gap-10 px-4 text-center sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -382,12 +605,247 @@ export default function LandingPage() {
           </motion.div>
         </div>
       </section>
-      <section>
-        <Grid container spacing={4}>
-          <Grid size={{ xs: 12 }}>
-            <SignupPage homepage={true} />
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-10"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.45 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-[#173E81]/60 mb-3">
+              Partners
+            </p>
+            <motion.h2
+              className="text-2xl font-semibold text-[#173E81]"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              viewport={{ once: true, amount: 0.6 }}
+            >
+              CEGA’s global and local trusted friends
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <Marquee className="[--duration:28s] [--gap:3rem]">
+              {partnerLogos.map((logo, idx) => (
+                <motion.div
+                  key={`${logo.src}-top`}
+                  className="flex items-center justify-center rounded-2xl bg-white px-6 py-3 shadow-[0_12px_30px_rgba(8,27,88,0.06)]"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: idx * 0.05 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  whileHover={{ scale: 1.06 }}
+                >
+                  <Image
+                    src={logo.src}
+                    alt={logo.alt}
+                    width={100}
+                    height={40}
+                    className="h-10 w-auto object-contain opacity-90"
+                  />
+                </motion.div>
+              ))}
+            </Marquee>
+          </motion.div>
+
+          <motion.div
+            className="mt-12 flex justify-center"
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
+            viewport={{ once: true, amount: 0.4 }}
+          >
+            <motion.button
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center rounded-full bg-[#13C2B6] px-8 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white shadow-[0_18px_35px_rgba(19,194,182,0.32)] transition-transform duration-300 hover:shadow-[0_20px_40px_rgba(19,194,182,0.4)]"
+            >
+              Become a Partner
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="relative py-16 lg:py-24 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="w-full max-w-xl space-y-6"
+          >
+            <h2 className="text-3xl font-bold text-[#173E81] sm:text-4xl">
+              <span className="relative inline-block">
+                <span className="relative z-10">Any questions on</span>
+                <span className="absolute inset-x-0 bottom-1 h-3 rounded-full bg-[#13C2B6]/40"></span>
+              </span>
+              <br />
+              <span className="relative inline-block">
+                <span className="relative z-10">Projects?</span>
+                <span className="absolute inset-x-0 bottom-1 h-3 rounded-full bg-[#13C2B6]/40"></span>
+              </span>
+            </h2>
+            <p className="font-outfit text-base text-[#4f6da5]">
+              Excited to become part of Pakistan’s biggest gaming brand? Reach
+              out and we will walk you through partnership, training, or startup
+              support opportunities.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="w-full max-w-xl"
+          >
+            <div className="grid grid-cols-1 overflow-hidden rounded-2xl bg-white shadow-[0_25px_80px_rgba(23,62,129,0.14)] sm:grid-cols-2">
+              <div className="flex flex-col gap-2 border-b border-white/60 bg-gradient-to-br from-[#f7fbff] to-white p-8 sm:border-b-0 sm:border-r">
+                <span className="text-xs uppercase tracking-[0.3em] text-[#13C2B6]">
+                  Write to us
+                </span>
+                <a
+                  className="text-lg font-semibold text-[#173E81]"
+                  href="mailto:partner@cega.com.pk"
+                >
+                  partner@cega.com.pk
+                </a>
+                <p className="text-sm text-[#5f7cb3]">
+                  We reply within one business day.
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 bg-gradient-to-br from-white via-[#f3f7ff] to-white p-8">
+                <span className="text-xs uppercase tracking-[0.3em] text-[#13C2B6]">
+                  Let’s talk
+                </span>
+                <a
+                  className="text-lg font-semibold text-[#173E81]"
+                  href="tel:+923001112324"
+                >
+                  +92 300 111 2324
+                </a>
+                <p className="text-sm text-[#5f7cb3]">
+                  Schedule a strategy call with our venture team.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 lg:py-24 bg-[#eff4ff]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="text-center mb-12 lg:mb-16"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-[#173E81]/60 mb-3">
+              FAQs
+            </p>
+            <motion.h2
+              className="text-3xl lg:text-4xl font-bold text-[#173E81] mb-4"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              viewport={{ once: true, amount: 0.6 }}
+            >
+              Building the future of play with CEGA
+            </motion.h2>
+            <motion.p
+              className="max-w-3xl mx-auto font-outfit text-base text-[#4f6da5]"
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.12 }}
+              viewport={{ once: true, amount: 0.65 }}
+            >
+              Explore how we enable founders, creatives, and partners while
+              delivering on our mission to expand Pakistan’s gaming economy.
+            </motion.p>
+          </motion.div>
+
+          <Grid container spacing={4}>
+            {faqColumns.map((column, columnIndex) => (
+              <Grid key={columnIndex} size={{ xs: 12, md: 6 }}>
+                <div className="space-y-3">
+                  {column.map((item, itemIndex) => (
+                    <motion.div
+                      key={item.question}
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{
+                        duration: 0.55,
+                        delay: itemIndex * 0.06,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      viewport={{ once: true, amount: 0.25 }}
+                      whileHover={{ y: -6 }}
+                    >
+                      <Accordion
+                        disableGutters
+                        elevation={0}
+                        square
+                        sx={{
+                          borderRadius: "18px",
+                          border: "1px solid rgba(23,62,129,0.12)",
+                          background:
+                            "linear-gradient(180deg, rgba(255,255,255,0.95), rgba(235,243,255,0.9))",
+                          boxShadow: "0 10px 28px rgba(8,27,88,0.08)",
+                          overflow: "hidden",
+                          "&:before": { display: "none" },
+                        }}
+                      >
+                        <AccordionSummary
+                          expandIcon={
+                            <ExpandMoreIcon sx={{ color: "#173E81" }} />
+                          }
+                          sx={{
+                            px: 3,
+                            py: 2.5,
+                            "& .MuiAccordionSummary-content": {
+                              alignItems: "center",
+                            },
+                          }}
+                        >
+                          <Typography
+                            className="font-orbitron"
+                            sx={{ fontWeight: 700, color: "#173E81" }}
+                          >
+                            {item.question}
+                          </Typography>
+                        </AccordionSummary>
+                        <Divider sx={{ opacity: 0.3 }} />
+                        <AccordionDetails sx={{ px: 3, py: 2 }}>
+                          <Typography
+                            className="font-outfit"
+                            sx={{ color: "#4f6da5", lineHeight: 1.8 }}
+                          >
+                            {item.answer}
+                          </Typography>
+                        </AccordionDetails>
+                      </Accordion>
+                    </motion.div>
+                  ))}
+                </div>
+              </Grid>
+            ))}
           </Grid>
-        </Grid>
+        </div>
       </section>
     </div>
   );
@@ -430,7 +888,7 @@ export function Hero({ activeVideo, incubation, training, coWorking }: any) {
                 transition={{ duration: 0.6 }}
               >
                 <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur">
-                  <span className="text-sm font-medium text-white">
+                  <span className="text-sm font-medium text-white font-outfit">
                     Now Accepting Applications
                   </span>
                 </div>
@@ -506,14 +964,14 @@ export function Hero({ activeVideo, incubation, training, coWorking }: any) {
                       >
                         <Link
                           href="/signup"
-                          className="md:w-50% w-full inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
+                          className="md:w-50% font-outfit w-full inline-flex items-center justify-center px-8 py-4 bg-[#87CBDE] text-[#0a1630] font-semibold rounded-lg shadow-[0_20px_45px_rgba(135,203,222,0.25)] hover:bg-[#87CBDE]/90 transition-colors"
                         >
                           Apply for Incubation
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
                       </motion.div>
 
-                      <button className="w-50% inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                      <button className="font-outfit w-50% inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
                         Learn More
                       </button>
                     </div>
