@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import React from "react";
 
 const processSteps = [
@@ -80,9 +79,9 @@ const Process = () => {
             </div>
 
             {/* Process Steps Grid */}
-            <Grid container spacing={4}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {processSteps.map((step, index) => (
-                <Grid size={{ xs: 12, md: 4 }} key={step.id}>
+                <div key={step.id}>
                   <div className="group relative h-full">
                     {/* Step Card */}
                     <div className="relative h-full overflow-hidden rounded-2xl bg-white/90 p-8 shadow-lg shadow-sky-200/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-300/60">
@@ -128,9 +127,9 @@ const Process = () => {
                       )}
                     </div>
                   </div>
-                </Grid>
+                </div>
               ))}
-            </Grid>
+            </div>
 
             {/* Call to Action */}
             <div className="mt-16 text-center">

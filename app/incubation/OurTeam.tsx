@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import React from "react";
 
 const mentorsData = [
@@ -130,9 +129,9 @@ const OurTeam = () => {
             </div>
 
             {/* Mentors Grid */}
-            <Grid container spacing={3}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {mentorsData.map((mentor) => (
-                <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={mentor.id}>
+                <div key={mentor.id}>
                   <div className="group relative">
                     {/* Mentor Card */}
                     <div className="relative overflow-hidden rounded-2xl bg-slate-800/60 p-6 shadow-lg shadow-slate-900/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 backdrop-blur-sm border border-slate-700/50">
@@ -169,9 +168,9 @@ const OurTeam = () => {
                       <div className="absolute inset-0 rounded-2xl bg-linear-to-r from-cyan-500/10 to-sky-500/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
                   </div>
-                </Grid>
+                </div>
               ))}
-            </Grid>
+            </div>
 
             {/* Bottom CTA */}
             <div className="mt-16 text-center">
