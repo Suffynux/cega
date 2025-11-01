@@ -3,6 +3,9 @@ import React, { Fragment, useEffect, useState } from "react";
 import { Hero } from "../page";
 import ProgramJourney from "./ProgramJounrey";
 import BenefitSection from "./Benefit";
+import WhoCanApply from "./WhoCanApply";
+import Process from "./Process";
+import OurTeam from "./OurTeam";
 
 export default function IncubationPage() {
   //  const heroVideos = ["/video1.mp4", "/video2.mp4", "/video3.mp4", "/video4.mp4"] as const;
@@ -26,6 +29,9 @@ export default function IncubationPage() {
       <Hero activeVideo={activeVideo} incubation />
       <ProgramJourney />
       <BenefitSection />
+      <WhoCanApply />
+      <Process />
+      <OurTeam />
     </Fragment>
   );
 }
